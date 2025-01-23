@@ -15,12 +15,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			contacto: [],
 			nuevoContacto: 
-				{
-					name: "",
-					phone: "",
-					email: "",
-					address: ""
-				}
+			{
+				name: "",
+				phone: "",
+				email: "",
+				address: ""
+			},
+			id:""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -74,8 +75,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const response = await fetch("https://playground.4geeks.com/contact/agendas/jaimito/contacts",requestOptions);
 					const data = await response.json()
-					//await store.fetchAgenda()
 					
+			},
+			deleteContacts: async (id) =>{
+				const store = getStore();
+
+				const myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				const requestOptions = {
+					method: "DELETE",
+					headers: myHeaders,
+				};
+
+				const response = await fetch(`https://playground.4geeks.com/contact/agendas/jaimito/contacts/${id}`,requestOptions);
+				const newContacts = store.contacto.filter(contact => contact.id !== id );
+				setStore({contacto: newContacts});
+				//const data = await response.json()
 			}
 
 		}

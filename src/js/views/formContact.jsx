@@ -34,8 +34,9 @@ const FormContact = ()=> {
                         store.nuevoContacto.phone = document.querySelector("#phoneForm").value;
                         store.nuevoContacto.address = document.querySelector("#addressForm").value;
 
-                        console.log(store.nuevoContacto)
+                        //console.log(store.nuevoContacto)
                         actions.saveContacts();
+                        actions.fetchAgenda();
                     }}
                 >save</button>
                 </Link>
