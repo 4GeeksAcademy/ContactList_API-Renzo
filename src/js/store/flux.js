@@ -91,6 +91,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const newContacts = store.contacto.filter(contact => contact.id !== id );
 				setStore({contacto: newContacts});
 				//const data = await response.json()
+			},
+			updateContacts: async (id) =>{
+				const store = getStore();
+
+				const myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				const raw = JSON.stringify({
+					"name": store.nuevoContacto.name,
+					"phone": store.nuevoContacto.phone,
+					"email": store.nuevoContacto.email,
+					"address": store.nuevoContacto.address
+				});
+
+				const requestOptions = {
+					method: "PUT",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const response = await fetch(`https://playground.4geeks.com/contact/agendas/jaimito/contacts/${id}`,requestOptions);
+				const data = await response.json()
 			}
 
 		}
