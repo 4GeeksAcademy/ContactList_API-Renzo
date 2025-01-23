@@ -32,6 +32,10 @@ export const Home = () => {
 		);
 	}
 
+	useEffect(()=>{
+		actions.fetchAgenda();
+	},[])
+
 	return <div>
 			{
 				store.contacto.map(item=> <Card key={item.id} contacto={item}/>)
