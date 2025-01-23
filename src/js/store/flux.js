@@ -20,8 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				phone: "",
 				email: "",
 				address: ""
-			},
-			id:""
+			}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction

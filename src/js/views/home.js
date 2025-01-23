@@ -31,11 +31,32 @@ export const Home = () => {
 								<i class="fa-solid fa-pencil mx-3"></i>
 								<i class="fa-solid fa-trash mx-3" 
 									onClick={()=>{
-										actions.deleteContacts(contacto.id);
-										actions.fetchAgenda();
-									}}>
-								</i>
+												actions.deleteContacts(contacto.id);
+												actions.fetchAgenda();
+											}} 
+								></i>
 							</div>
+
+							<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<p>Si lo eliminas, no irá a acapulco!</p>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OH! nooo!</button>
+										<button type="button" class="btn btn-primary"
+											
+										>Yes baby!</button>
+									</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 		);
