@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+
+import { Context } from "../store/appContext.js"
 
 
 export const Home = () => {
 
-	const urlApiGet = "https://playground.4geeks.com/contact/agendas/jaimito";
+	const {store,actions} = useContext(Context);
 
-	const [contacto, setContacto] = useState([]);
-
-	const Card = (props) =>{
+	const Card = ({contacto}) =>{
 		return(
 					<div className="d-flex justify-content-center">
 						<div className="card mb-3 col-8" >
@@ -20,10 +20,10 @@ export const Home = () => {
 								</div>
 								<div className="col-md-8" >
 								<div className="card-body">
-									<h5 className="card-title">{props.name}</h5>
-									<p className="card-text">{props.address}</p>
-									<p className="card-text"><small className="text-body-secondary">{props.phone}</small></p>
-									<p className="card-text"><small className="text-body-secondary">{props.email}</small></p>
+									<h5 className="card-title">{contacto.name}</h5>
+									<p className="card-text">{contacto.address}</p>
+									<p className="card-text"><small className="text-body-secondary">{contacto.phone}</small></p>
+									<p className="card-text"><small className="text-body-secondary">{contacto.email}</small></p>
 								</div>
 								</div>
 							</div>
@@ -32,27 +32,11 @@ export const Home = () => {
 		);
 	}
 
-	const fetchAgenda = async () =>{
-		try {
-			const response = await fetch(urlApiGet);
-			const data = await response.json();
-			setContacto(data.contacts);
-			console.log(data);
-	
-		} catch (error) {
-			console.log("Error",error);
-		}
-	};
-
-	useEffect(()=>{
-		fetchAgenda();
-	},[]);
-
-	return(<>
-		
+	return <div>
 			{
-				contacto.map(item=> <Card name={item.name} address={item.address} phone={item.phone} email={item.email}/>)
+				store.contacto.map(item=> <Card key={item.id} contacto={item}/>)
 			}
-		</>
-	);
+
+		</div>
+	
 };
