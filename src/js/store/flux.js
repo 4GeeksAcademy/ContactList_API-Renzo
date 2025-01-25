@@ -88,8 +88,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const response = await fetch(`https://playground.4geeks.com/contact/agendas/jaimito/contacts/${id}`,requestOptions);
-				const newContacts = store.contacto.filter(contact => contact.id !== id );
-				setStore({contacto: newContacts});
+				if(response.ok){
+					const newContacts = store.contacto.filter(contact => contact.id !== id );
+					setStore({contacto: newContacts});
+				}
+				
 				//const data = await response.json()
 			},
 			updateContacts: async (id) =>{

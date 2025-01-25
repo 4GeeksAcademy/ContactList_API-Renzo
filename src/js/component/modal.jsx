@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-const Modal = ({id}) =>{
+const Modal = ({onDelete, id}) =>{
+
 
 
     return(
 
-        <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal fade" id={"staticBackdrop-"+id} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
@@ -22,7 +24,7 @@ const Modal = ({id}) =>{
                         onClick={()=>{
                             //actions.deleteContacts(contacto.id);
                             //actions.fetchAgenda();
-                            console.log("Modal el id es "+id);
+                            onDelete();
                         }} 
                     >No te vayas chavo!</button>
                 </div>

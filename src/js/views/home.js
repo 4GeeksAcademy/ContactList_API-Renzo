@@ -12,8 +12,6 @@ export const Home = () => {
 
 	const Card = ({contacto}) =>{
 
-		const [idContacto, setIdContacto] = useState(0);
-		let numIndex=0;
 
 		return(
 					<div className="d-flex justify-content-center">
@@ -38,19 +36,16 @@ export const Home = () => {
 										//Actualizar
 									}} 
 								></i>
-								<i className="fa-solid fa-trash mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+								<i className="fa-solid fa-trash mx-3" data-bs-toggle="modal" data-bs-target={"#staticBackdrop-"+contacto.id}
 									onClick={()=>{
-												setIdContacto(contacto.id);
-												//console.log("contacto.id ",contacto.id);
-												//numIndex = contacto.id;
-												//console.log("idContacto es: ",idContacto + " numIndex es: ", numIndex);
 												
-												//lo de abajo funciona sin modal xd
-												//actions.deleteContacts(contacto.id);
-												//actions.fetchAgenda();
 											}} 
 								></i>
-								<Modal id={idContacto}/>
+								<Modal id={contacto.id} onDelete={async () => {
+									
+									await actions.deleteContacts(contacto.id);
+									//await actions.fetchAgenda();
+								}}/>
 							</div>
 						</div>
 					</div>
