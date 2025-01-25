@@ -1,11 +1,10 @@
-import React,{useContext, useEffect, useState} from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const FormContact = ()=> {
 
     const {store, actions} = useContext(Context);
-
 
     return <>
             <h1 className="display-3 text-center fw-bold mb-5">Add a new contact</h1>
@@ -28,25 +27,25 @@ const FormContact = ()=> {
                     <input type="text" className="form-control" id="addressForm" placeholder="Enter address"/>
                 </div>
                 <Link to="/">
-                <button type="submit" className="btn btn-primary col-12"
-                    onClick={()=>{
-                        store.nuevoContacto.name = document.querySelector("#nameForm").value;
-                        store.nuevoContacto.email = document.querySelector("#emailForm").value;
-                        store.nuevoContacto.phone = document.querySelector("#phoneForm").value;
-                        store.nuevoContacto.address = document.querySelector("#addressForm").value;
+                    <button type="submit" className="btn btn-primary col-12"
+                        onClick={()=>{
+                            store.nuevoContacto.name = document.querySelector("#nameForm").value;
+                            store.nuevoContacto.email = document.querySelector("#emailForm").value;
+                            store.nuevoContacto.phone = document.querySelector("#phoneForm").value;
+                            store.nuevoContacto.address = document.querySelector("#addressForm").value;
 
-                        //console.log(store.nuevoContacto)
-                        actions.saveContacts();
-                        actions.fetchAgenda();
-                    }}
-                >save</button>
+                            //console.log(store.nuevoContacto)
+                            actions.saveContacts();
+                            actions.fetchAgenda();
+                        }}
+                    >save</button>
                 </Link>
                 <Link to="/">
                     <span>get back to contacts</span>
                 </Link>
             </div>
         
-        {console.log(store.contacto)}
+        {console.log("form contact",store.contacto)}
     </>
 }
 

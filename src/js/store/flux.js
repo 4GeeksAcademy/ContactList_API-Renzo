@@ -116,7 +116,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const response = await fetch(`https://playground.4geeks.com/contact/agendas/jaimito/contacts/${id}`,requestOptions);
-				const data = await response.json()
+
+				//const data =  store.contacto.map((user) => user.id == response.data.id ? (const data= await response.json()) : user) 
 			}
 
 		}

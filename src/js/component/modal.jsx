@@ -22,8 +22,6 @@ const Modal = ({onDelete, id}) =>{
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Que vaya a acapulco!</button>
                     <button type="button" className="btn btn-danger" data-bs-dismiss="modal"
                         onClick={()=>{
-                            //actions.deleteContacts(contacto.id);
-                            //actions.fetchAgenda();
                             onDelete();
                         }} 
                     >No te vayas chavo!</button>
