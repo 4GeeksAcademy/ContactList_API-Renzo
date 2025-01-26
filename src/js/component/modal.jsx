@@ -23,6 +23,7 @@ const Modal = ({onDelete, id}) =>{
                     <button type="button" className="btn btn-danger" data-bs-dismiss="modal"
                         onClick={()=>{
                             onDelete();
+                            alert("pi! pi! pi!");
                         }} 
                     >No te vayas chavo!</button>
                 </div>

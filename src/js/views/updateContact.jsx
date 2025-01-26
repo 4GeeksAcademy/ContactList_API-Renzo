@@ -14,7 +14,7 @@ const UpdateContact = ()=> {
     const [email, setEmail] = useState(location.state.email);
 
     return <>
-            <h1 className="display-3 text-center fw-bold mb-5">Add a new contact</h1>
+            <h1 className="display-3 text-center fw-bold my-5">Edit a contact</h1>
         
             <div className="col-6 mx-auto">
                 <div className="mb-3">
