@@ -20,7 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				phone: "",
 				email: "",
 				address: ""
-			}
+			},
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -97,6 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			updateContacts: async (id) =>{
 				const store = getStore();
+				const updateContact = store.contacto.find((item) => store.contacto.id == item.id);
 
 				const myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -116,7 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 
 				const response = await fetch(`https://playground.4geeks.com/contact/agendas/jaimito/contacts/${id}`,requestOptions);
-
+				const data = await response.json()
 				//const data =  store.contacto.map((user) => user.id == response.data.id ? (const data= await response.json()) : user) 
 			}
 

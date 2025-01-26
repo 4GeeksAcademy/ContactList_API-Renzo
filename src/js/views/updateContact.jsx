@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from "react";
+import React,{useContext, useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -46,9 +46,17 @@ const UpdateContact = ()=> {
                 <Link to="/">
                     <button type="submit" className="btn btn-warning col-12 mt-3"
                         onClick={()=>{
-                            async() => {
-                                await actions.UpdateContact(id);
-                            }
+
+                            store.nuevoContacto.name = document.querySelector("#nameForm").value;
+                            store.nuevoContacto.email = document.querySelector("#emailForm").value;
+                            store.nuevoContacto.phone = document.querySelector("#phoneForm").value;
+                            store.nuevoContacto.address = document.querySelector("#addressForm").value;
+
+                            //console.log(store.nuevoContacto);
+                            
+                            actions.updateContacts(id);
+                            actions.fetchAgenda();
+                            
                         }}
                     >update</button>
                 </Link>
