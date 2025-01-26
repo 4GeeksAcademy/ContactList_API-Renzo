@@ -45,7 +45,6 @@ const FormContact = ()=> {
                 </Link>
             </div>
         
-        {console.log("form contact",store.contacto)}
     </>
 }
 

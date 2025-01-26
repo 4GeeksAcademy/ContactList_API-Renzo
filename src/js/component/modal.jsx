@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 const Modal = ({onDelete, id}) =>{
 
 
-
     return(
 
         <div className="modal fade" id={"staticBackdrop-"+id} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -23,7 +22,6 @@ const Modal = ({onDelete, id}) =>{
                     <button type="button" className="btn btn-danger" data-bs-dismiss="modal"
                         onClick={()=>{
                             onDelete();
-                            alert("pi! pi! pi!");
                         }} 
                     >No te vayas chavo!</button>
                 </div>
